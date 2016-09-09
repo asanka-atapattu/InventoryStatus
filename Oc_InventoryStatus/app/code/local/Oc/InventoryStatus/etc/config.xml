@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Oc_InventoryStatus>
+            <version>0.1.0</version>
+        </Oc_InventoryStatus>
+    </modules>
+    <global>
+        <helpers>
+            <inventorystatus>
+                <class>Oc_InventoryStatus_Helper</class>
+            </inventorystatus>
+        </helpers>
+        <models>
+            <inventorystatus>
+                <class>Oc_InventoryStatus_Model</class>
+            </inventorystatus>
+        </models>
+        <events>
+            <sales_order_creditmemo_save_after>
+                <observers>
+                    <inventorystatus>
+                        <class>inventorystatus/observer</class>
+                        <method>oc_creditmemo_inventory_status</method>
+                        <args></args>
+                    </inventorystatus>
+                </observers>
+            </sales_order_creditmemo_save_after>
+        </events>
+    </global>
+</config> 
